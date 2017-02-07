@@ -9,11 +9,11 @@ for linea in lineas:
         shell = linea.split(':')[-1][:-1]
         print(login, shell)
 
-print"La shell de root:, dicc["root"]
+print("La shell de root:", dicc["root"])
 
 try:
     print(dicc["imaginario"])
-except:
+except KeyError:
     print("imaginario no existe.")
     
     
