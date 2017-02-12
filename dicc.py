@@ -4,8 +4,11 @@
 """
 
 Script que abre el fichero /etc/passwd, toma todas sus líneas
-en una lista e imprime, para cada identificador de usuario, la
-shell que utiliza
+en una lista y las guarde en un diccionario
+
+Imprime por pantalla los valores para el usuario 'root' y para
+el usuario 'imaginario'. El segundo produce un error; evitar el 
+error mediante excepciones.
 
 """
 
@@ -26,12 +29,19 @@ for linea in lineas:
         # y con [6] porque la shell está en la posición 6 de nuestra lista.
         login = linea.split(':')[0]
         shell = linea.split(':')[6][:-1]
+        # Key 
+        dicc[login] = shell
 
-print("La shell de root:", dicc["root"])
+print("Los valores para el usuario root: ", dicc['root'])
 
 try:
-    print(dicc["imaginario"])
+    usu = dicc['imaginario']
 except KeyError:
-    print("imaginario no existe.")
+    print("Ese usuario no existe.")
+
+
     
+
+    
+
     
